@@ -32,11 +32,11 @@ public class PosMachine {
     }
 
     private String generateReceiptLine(List<ReceiptItem> receiptItems){
-        String outputLine = "***<store earning no money>Receipt***\n";
+        StringBuilder outputLine = new StringBuilder("***<store earning no money>Receipt***\n");
         for(ReceiptItem receiptLine : receiptItems){
-            outputLine += String.format("Name: %s, Quantity: %d, Unit price: %d (yuan), Subtotal: %d (yuan)\n",receiptLine.getItemName(),receiptLine.getUnitQty(),receiptLine.getUnitPrice(),receiptLine.getUnitSubtotal());
+            outputLine.append(String.format("Name: %s, Quantity: %d, Unit price: %d (yuan), Subtotal: %d (yuan)\n", receiptLine.getItemName(), receiptLine.getUnitQty(), receiptLine.getUnitPrice(), receiptLine.getUnitSubtotal()));
         }
-        return outputLine;
+        return outputLine.toString();
     }
 
     private int getReceiptTotal(List<ReceiptItem> receiptItems){
